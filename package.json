@@ -1,0 +1,24 @@
+{
+  "name": "gulp-min-ejs",
+  "version": "1.0.0",
+  "description": "minify ejs local template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cynosureabu/gulp-min-ejs.git"
+  },
+  "keywords": [
+    "ejs",
+    "ejs",
+    "local"
+  ],
+  "author": "chen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cynosureabu/gulp-min-ejs/issues"
+  },
+  "homepage": "https://github.com/cynosureabu/gulp-min-ejs"
+}
