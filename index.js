@@ -7,10 +7,10 @@ var through = require('through2'),
 module.exports = function(file) {
     return through.obj(function(file, enc, cb) {
         if (!file)
-            throw new PluginError('gulp-minify-ejs', 'Missing file option for gulp-minify-ejs');
+            throw new PluginError('gulp-min-ejs', 'Missing file option for gulp-minify-ejs');
 
         if (typeof file !== 'string' && typeof file.path !== 'string')
-            throw new PluginError('gulp-minify-ejs', 'Missing path in file options for gulp-minify-ejs');
+            throw new PluginError('gulp-min-ejs', 'Missing path in file options for gulp-minify-ejs');
 
         if (file.isBuffer()) {
             var htmlBuilder = [];
@@ -64,6 +64,11 @@ module.exports = function(file) {
                     }
                 }
 
+                // exclude all non-first space
+                if(charstr === ' ' && i > 0 && charstr[i-1] === ' '){
+                    continue;
+                }
+
                 if (inscript || incss) {
                     htmlBuilder.push(charstr);
                     continue;
@@ -71,7 +76,7 @@ module.exports = function(file) {
                     if (inner) {
                         htmlBuilder.push(charstr);
                     } else {
-                        if (charstr === '\r' || charstr === '\n' || charstr === ' ' || charstr === '\t')
+                        if (charstr === '\r' || charstr === '\n' || charstr === '\t')
                             continue;
                         htmlBuilder.push(charstr);
                     }
